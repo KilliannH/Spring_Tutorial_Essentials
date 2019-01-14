@@ -15,7 +15,11 @@ public class FakeStudentDaoImpl implements StudentDao {
     private final Map<UUID, Student> database;
 
     public FakeStudentDaoImpl() {
-        this.database = new HashMap<>();
+        database = new HashMap<>();
+        UUID studentId = UUID.randomUUID();
+        database.put(studentId,
+                new Student(studentId, 14, "John", "Doe", "Computer Science")
+        );
     }
 
     @Override

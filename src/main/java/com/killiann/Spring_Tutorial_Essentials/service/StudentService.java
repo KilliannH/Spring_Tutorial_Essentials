@@ -24,6 +24,7 @@ public class StudentService {
 
         //check if studentId is null before send it to the db
         UUID studentUid = studentId == null ? UUID.randomUUID() : studentId;
+        student.setId(studentId);
         return studentDao.insertNewStudent(studentUid, student);
     }
 

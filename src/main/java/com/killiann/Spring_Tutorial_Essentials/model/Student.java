@@ -1,17 +1,23 @@
 package com.killiann.Spring_Tutorial_Essentials.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.UUID;
 
 public class Student {
 
     //field properties
-    private final UUID id;
+    private UUID id;
     private final Integer age;
     private final String firstname;
     private final String lastname;
     private final String course;
 
-    public Student(UUID id, Integer age, String firstname, String lastname, String course) {
+    public Student(@JsonProperty("id") UUID id,
+                   @JsonProperty("age") Integer age,
+                   @JsonProperty("firstname") String firstname,
+                   @JsonProperty("lastname") String lastname,
+                   @JsonProperty("course") String course) {
         this.id = id;
         this.age = age;
         this.firstname = firstname;
@@ -19,6 +25,7 @@ public class Student {
         this.course = course;
     }
 
+    //getters
     public UUID getId() {
         return id;
     }
@@ -37,5 +44,10 @@ public class Student {
 
     public String getCourse() {
         return course;
+    }
+
+    //setter
+    public void setId(UUID id) {
+        this.id = id;
     }
 }
